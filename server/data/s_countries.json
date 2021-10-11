@@ -1,0 +1,74 @@
+{
+    "results": [
+        {
+            "code": "156",
+            "name": "China",
+            "iso_2digit_alpha": "CN"
+        },
+        {
+            "code": "842",
+            "name": "USA",
+            "iso_2digit_alpha": "US"
+        },
+        {
+            "code": "699",
+            "name": "India",
+            "iso_2digit_alpha": "IN"
+        },
+        {
+            "code": "392",
+            "name": "Japan",
+            "iso_2digit_alpha": "JP"
+        },
+        {
+            "code": "276",
+            "name": "Germany",
+            "iso_2digit_alpha": "DE"
+        },
+        {
+            "code": "643",
+            "name": "Russian Federation",
+            "iso_2digit_alpha": "RU"
+        },
+        {
+            "code": "76",
+            "name": "Brazil",
+            "iso_2digit_alpha": "BR"
+        },
+        {
+            "code": "826",
+            "name": "United Kingdom",
+            "iso_2digit_alpha": "UK"
+        },
+        {
+            "code": "360",
+            "name": "Indonesia",
+            "iso_2digit_alpha": "ID"
+        },
+        {
+            "code": "251",
+            "name": "France",
+            "iso_2digit_alpha": "FR"
+        },
+        {
+            "code": "484",
+            "name": "Mexico",
+            "iso_2digit_alpha": "MX"
+        },
+        {
+            "code": "381",
+            "name": "Italy",
+            "iso_2digit_alpha": "IT"
+        },
+        {
+            "code": "792",
+            "name": "Turkey",
+            "iso_2digit_alpha": "TR"
+        },
+        {
+            "code": "410",
+            "name": "Rep. of Korea",
+            "iso_2digit_alpha": "KR"
+        }
+    ]
+}

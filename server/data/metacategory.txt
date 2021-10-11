@@ -1,0 +1,537 @@
+[
+    {
+        "parent": "total",
+        "id": "0",
+        "text": "Textiles"
+    },
+    {
+        "parent": 0,
+        "id": "50",
+        "text": "Silk"
+    },
+    {
+        "parent": 0,
+        "id": "51",
+        "text": "Wool"
+    },
+    {
+        "parent": 0,
+        "id": "52",
+        "text": "Cotton"
+    },
+    {
+        "parent": 0,
+        "id": "53",
+        "text": "Other vegetable textile fibres"
+    },
+    {
+        "parent": 0,
+        "id": "54",
+        "text": "Man-made filaments"
+    },
+    {
+        "parent": 0,
+        "id": "55",
+        "text": "Man-made staple fibres"
+    },
+    {
+        "parent": 0,
+        "id": "56",
+        "text": "Wadding, felt and nonwovens"
+    },
+    {
+        "parent": 0,
+        "id": "57",
+        "text": "Carpets"
+    },
+    {
+        "parent": 0,
+        "id": "58",
+        "text": "Special woven fabrics"
+    },
+    {
+        "parent": 0,
+        "id": "59",
+        "text": "Impregnated, coated or laminated textile fabrics"
+    },
+    {
+        "parent": 0,
+        "id": "60",
+        "text": "Knitted fabrics"
+    },
+    {
+        "parent": 0,
+        "id": "61",
+        "text": "Apparel, knit"
+    },
+    {
+        "parent": 0,
+        "id": "62",
+        "text": "Apparel, not knit"
+    },
+    {
+        "parent": 0,
+        "id": "63",
+        "text": "Other made up textile articles"
+    },
+    {
+        "parent": 0,
+        "id": "64",
+        "text": "Footwear"
+    },
+    {
+        "parent": 0,
+        "id": "65",
+        "text": "Headgear"
+    },
+    {
+        "parent": 0,
+        "id": "66",
+        "text": "Umbrellas and walking-sticks"
+    },
+    {
+        "parent": 0,
+        "id": "67",
+        "text": "Feathers and down"
+    },
+    {
+        "parent": 0,
+        "id": "94",
+        "text": "Furniture"
+    },
+    {
+        "parent": 9,
+        "id": "97",
+        "text": "Art"
+    },
+    {
+        "parent": "total",
+        "id": "1",
+        "text": "Agriculture"
+    },
+    {
+        "parent": 1,
+        "id": "01",
+        "text": "Live animals"
+    },
+    {
+        "parent": 1,
+        "id": "02",
+        "text": "Meat"
+    },
+    {
+        "parent": 1,
+        "id": "03",
+        "text": "Fish"
+    },
+    {
+        "parent": 1,
+        "id": "04",
+        "text": "Diary products"
+    },
+    {
+        "parent": 1,
+        "id": "05",
+        "text": "Animal products"
+    },
+    {
+        "parent": 1,
+        "id": "06",
+        "text": "Plants"
+    },
+    {
+        "parent": 1,
+        "id": "07",
+        "text": "Vegetables"
+    },
+    {
+        "parent": 1,
+        "id": "08",
+        "text": "Fruits and nuts"
+    },
+    {
+        "parent": 1,
+        "id": "09",
+        "text": "Coffee, tea and spices"
+    },
+    {
+        "parent": 1,
+        "id": "10",
+        "text": "Cereals"
+    },
+    {
+        "parent": 1,
+        "id": "11",
+        "text": "Flours, starches and malts"
+    },
+    {
+        "parent": 1,
+        "id": "12",
+        "text": "Oil seeds and oleaginous fruits"
+    },
+    {
+        "parent": 1,
+        "id": "13",
+        "text": "Lac and other vegetable extracts"
+    },
+    {
+        "parent": 1,
+        "id": "14",
+        "text": "Other vegetable materials"
+    },
+    {
+        "parent": 1,
+        "id": "15",
+        "text": "Animal or vegetable fats, oils or waxes"
+    },
+    {
+        "parent": 1,
+        "id": "16",
+        "text": "Preparations of meat or fish"
+    },
+    {
+        "parent": 1,
+        "id": "17",
+        "text": "Sugar and candy"
+    },
+    {
+        "parent": 1,
+        "id": "18",
+        "text": "Cocoa"
+    },
+    {
+        "parent": 1,
+        "id": "19",
+        "text": "Preparations of cereals, flour, starch or milk"
+    },
+    {
+        "parent": 1,
+        "id": "20",
+        "text": "Preparations of vegetables, fruit, or nuts"
+    },
+    {
+        "parent": 1,
+        "id": "21",
+        "text": "Miscellaneous edible preparations"
+    },
+    {
+        "parent": 1,
+        "id": "22",
+        "text": "Beverages"
+    },
+    {
+        "parent": 1,
+        "id": "23",
+        "text": "Food residues and animal feed"
+    },
+    {
+        "parent": 1,
+        "id": "24",
+        "text": "Tobacco"
+    },
+    {
+        "parent": 1,
+        "id": "41",
+        "text": "Leather and skins"
+    },
+    {
+        "parent": 1,
+        "id": "42",
+        "text": "Articles of leather"
+    },
+    {
+        "parent": 1,
+        "id": "43",
+        "text": "Furskins"
+    },
+    {
+        "parent": 1,
+        "id": "44",
+        "text": "Wood"
+    },
+    {
+        "parent": 1,
+        "id": "45",
+        "text": "Cork"
+    },
+    {
+        "parent": 1,
+        "id": "46",
+        "text": "Manufactues of plaiting materials"
+    },
+    {
+        "parent": 1,
+        "id": "47",
+        "text": "Pulp of wood"
+    },
+    {
+        "parent": 1,
+        "id": "48",
+        "text": "Paper and paperboard"
+    },
+    {
+        "parent": 9,
+        "id": "49",
+        "text": "Products of the printing industry"
+    },
+    {
+        "parent": "total",
+        "id": "2",
+        "text": "Stone"
+    },
+    {
+        "parent": 2,
+        "id": "68",
+        "text": "Articles of stone, plaster, cement, etc."
+    },
+    {
+        "parent": 2,
+        "id": "69",
+        "text": "Ceramic products"
+    },
+    {
+        "parent": 2,
+        "id": "70",
+        "text": "Glass and glassware"
+    },
+    {
+        "parent": 2,
+        "id": "71",
+        "text": "Precious metals and stones"
+    },
+    {
+        "parent": "total",
+        "id": "3",
+        "text": "Minerals"
+    },
+    {
+        "parent": 3,
+        "id": "25",
+        "text": "Salt, sulphur, lime, cement, etc."
+    },
+    {
+        "parent": 3,
+        "id": "26",
+        "text": "Ores, slag and ash"
+    },
+    {
+        "parent": 3,
+        "id": "27",
+        "text": "Mineral fuels, oils and waxes"
+    },
+    {
+        "parent": "total",
+        "id": "4",
+        "text": "Metals"
+    },
+    {
+        "parent": 4,
+        "id": "72",
+        "text": "Iron and steel"
+    },
+    {
+        "parent": 4,
+        "id": "73",
+        "text": "Articles of iron or steel"
+    },
+    {
+        "parent": 4,
+        "id": "74",
+        "text": "Copper"
+    },
+    {
+        "parent": 4,
+        "id": "75",
+        "text": "Nickel"
+    },
+    {
+        "parent": 4,
+        "id": "76",
+        "text": "Aluminium"
+    },
+    {
+        "parent": 4,
+        "id": "78",
+        "text": "Lead"
+    },
+    {
+        "parent": 4,
+        "id": "79",
+        "text": "Zinc"
+    },
+    {
+        "parent": 4,
+        "id": "80",
+        "text": "Tin"
+    },
+    {
+        "parent": 4,
+        "id": "81",
+        "text": "Other base metals"
+    },
+    {
+        "parent": 4,
+        "id": "82",
+        "text": "Metal tools and tableware"
+    },
+    {
+        "parent": 4,
+        "id": "83",
+        "text": "Miscellaneous articles of base metal"
+    },
+    {
+        "parent": "total",
+        "id": "5",
+        "text": "Chemicals"
+    },
+    {
+        "parent": 5,
+        "id": "28",
+        "text": "Inorganic chemicals"
+    },
+    {
+        "parent": 5,
+        "id": "29",
+        "text": "Organic chemicals"
+    },
+    {
+        "parent": 5,
+        "id": "30",
+        "text": "Pharmaceutical products"
+    },
+    {
+        "parent": 5,
+        "id": "31",
+        "text": "Fertilisers"
+    },
+    {
+        "parent": 5,
+        "id": "32",
+        "text": "Dyes, paints, inks, etc."
+    },
+    {
+        "parent": 5,
+        "id": "33",
+        "text": "Essential oils"
+    },
+    {
+        "parent": 5,
+        "id": "34",
+        "text": "Soaps, waxes, and paints"
+    },
+    {
+        "parent": 5,
+        "id": "35",
+        "text": "Albuminoidals; modified starches; glues; enzymes"
+    },
+    {
+        "parent": 5,
+        "id": "36",
+        "text": "Explosives"
+    },
+    {
+        "parent": 9,
+        "id": "37",
+        "text": "Photographic or cinematographic goods"
+    },
+    {
+        "parent": 5,
+        "id": "38",
+        "text": "Miscellaneous chemical products"
+    },
+    {
+        "parent": 5,
+        "id": "39",
+        "text": "Plastics"
+    },
+    {
+        "parent": 5,
+        "id": "40",
+        "text": "Rubber"
+    },
+    {
+        "parent": "total",
+        "id": "6",
+        "text": "Vehicles"
+    },
+    {
+        "parent": 6,
+        "id": "86",
+        "text": "Trains"
+    },
+    {
+        "parent": 6,
+        "id": "87",
+        "text": "Vehicles"
+    },
+    {
+        "parent": 6,
+        "id": "88",
+        "text": "Aircraft"
+    },
+    {
+        "parent": 6,
+        "id": "89",
+        "text": "Ships"
+    },
+    {
+        "parent": "total",
+        "id": "7",
+        "text": "Machinery"
+    },
+    {
+        "parent": 7,
+        "id": "84",
+        "text": "Industrial Machinery"
+    },
+    {
+        "parent": 7,
+        "id": "90",
+        "text": "Apparatuses (optical, medical, etc.)"
+    },
+    {
+        "parent": 7,
+        "id": "91",
+        "text": "Clocks"
+    },
+    {
+        "parent": 7,
+        "id": "92",
+        "text": "Musical instruments"
+    },
+    {
+        "parent": 7,
+        "id": "93",
+        "text": "Arms and ammunition"
+    },
+    {
+        "parent": 7,
+        "id": "95",
+        "text": "Toys"
+    },
+    {
+        "parent": 7,
+        "id": "96",
+        "text": "Miscellaneous manufactured articles"
+    },
+    {
+        "parent": "total",
+        "id": "8",
+        "text": "Electronics"
+    },
+    {
+        "parent": 8,
+        "id": "85",
+        "text": "Electrical machinery and equipment"
+    },
+    {
+        "parent": "total",
+        "id": "9",
+        "text": "Other"
+    },
+    {
+        "parent": 9,
+        "id": "99",
+        "text": "Other"
+    }
+]
