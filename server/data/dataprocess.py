@@ -140,8 +140,8 @@ def Formaptrix():
                 resim[str(year)][s_c1][s_c2] = {}
                 resex[str(year)][s_c1][s_c2] = {}
                 for cat_i in range(len(categories)):
-                    resim[str(year)][s_c1][s_c2][str(cat_i)] = 0.0
-                    resex[str(year)][s_c1][s_c2][str(cat_i)] = 0.0
+                    resim[str(year)][s_c1][s_c2][str(cat_i)] = {"v": 0.0, "q": 0.0}
+                    resex[str(year)][s_c1][s_c2][str(cat_i)] = {"v": 0.0, "q": 0.0}
     totalim = {}
     totalex = {}
     # {"year": {"country_code": {"production_code": float}}}
@@ -152,8 +152,8 @@ def Formaptrix():
             totalim[str(year)][s_c] = {}
             totalex[str(year)][s_c] = {}
             for cat_i in range(len(categories)):
-                totalim[str(year)][s_c][str(cat_i)] = 0.0
-                totalex[str(year)][s_c][str(cat_i)] = 0.0
+                totalim[str(year)][s_c][str(cat_i)] = {"v": 0.0, "q": 0.0}
+                totalex[str(year)][s_c][str(cat_i)] = {"v": 0.0, "q": 0.0}
     for yy in range(int(yy1), int(yy2)+1):
         print(yy)
         with open(datadirpath + "BACI_HS92_Y"+str(yy)+"_V202102.csv", "r") as f:
@@ -169,18 +169,22 @@ def Formaptrix():
                     hsid = row[3]
                     prodcat = hs2ca(hsid)
                     if prodcat:
-                        resex[str(yy)][row[1]][row[2]][prodcat] += float(row[4])
-                        resim[str(yy)][row[2]][row[1]][prodcat] += float(row[4])
+                        resex[str(yy)][row[1]][row[2]][prodcat]["v"] += float(row[4])
+                        resex[str(yy)][row[1]][row[2]][prodcat]["q"] += float(row[5] if row[5] != "" else "0")
+                        resim[str(yy)][row[2]][row[1]][prodcat]["v"] += float(row[4])
+                        resim[str(yy)][row[2]][row[1]][prodcat]["q"] += float(row[5] if row[5] != "" else "0")
                 if row[1] in s_countries_code:
                     hsid = row[3]
                     prodcat = hs2ca(hsid)
                     if prodcat:
-                        totalex[str(yy)][row[1]][prodcat] += float(row[4])
+                        totalex[str(yy)][row[1]][prodcat]["v"] += float(row[4])
+                        totalex[str(yy)][row[1]][prodcat]["q"] += float(row[5] if row[5] != "" else "0")
                 if row[2] in s_countries_code:
                     hsid = row[3]
                     prodcat = hs2ca(hsid)
                     if prodcat:
-                        totalim[str(yy)][row[2]][prodcat] += float(row[4])
+                        totalim[str(yy)][row[2]][prodcat]["v"] += float(row[4])
+                        totalim[str(yy)][row[2]][prodcat]["q"] += float(row[5] if row[5] != "" else "0")
     with open("./s_country_mutual_export.json", "w") as f:
         json.dump(resex, f)
     with open("./s_country_mutual_import.json", "w") as f:
@@ -216,8 +220,8 @@ def reruncategory():
 if __name__ == "__main__":
     #test()
     #getca2hs()
-    datacategoryconvert()
+    #datacategoryconvert()
     #convertS3TOHS92()
     #productcodes_csv2json()
-    #Formaptrix()
+    Formaptrix()
     #reruncategory()

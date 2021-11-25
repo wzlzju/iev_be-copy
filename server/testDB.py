@@ -55,6 +55,13 @@ with open(s_countriespath, "r") as f:
 with open(productspath, "r") as f:
     products = json.load(f)
 
+conn = sqlite3.connect("../db/iev.db")
+
+ts = " union all ".join(["select * from n%d" % (i) for i in range(1995,2020)])
+exe = "create table N as %s" % (ts)
+cur = conn.cursor()
+cur.execute(exe)
+
 # conn = sqlite3.connect("../db/iev.db")
 
 #df = pandas.read_csv("../cepii data/BACI_HS92_V202102/BACI_HS92_Y1995_V202102.csv")

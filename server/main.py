@@ -81,7 +81,6 @@ if os.path.exists(configfilepath):
     for K in configf.keys():
         locals()[K] = configf[K]
 
-
 colorama.init()
 
 # define the app and connect the database
@@ -161,9 +160,15 @@ def returns_countries():
         sc["name"] = countries[scc]["country_name_abbreviation"]
         sc["alpha2"] = countries[scc]["iso_2digit_alpha"]
         sc["alpha3"] = countries[scc]["iso_3digit_alpha"]
-        with open("../images/national-flags/country_"+scc+".png", 'rb') as f:
-            img = base64.b64encode(f.read()).decode()
-        sc["image"] = "data:image/jpg;base64,"+img
+        if RETURNIMAGE:
+            try:
+                with open("../images/national-flags/country_"+scc+".png", 'rb') as f:
+                    img = base64.b64encode(f.read()).decode()
+                sc["image"] = "data:image/jpg;base64,"+img
+            except:
+                sc["image"] = ""
+        else:
+            sc["image"] = ""
         res.append(sc)
     return json.dumps(res)
 
@@ -174,9 +179,15 @@ def returns_categories():
         sc = {}
         sc["id"] = categories[idx]["id"]
         sc["name"] = categories[idx]["text"].split(" - ")[-1]
-        with open("../images/industry/category_"+categories[idx]["id"]+".png", 'rb') as f:
-            img = base64.b64encode(f.read()).decode()
-        sc["image"] = "data:image/jpg;base64,"+img
+        if RETURNIMAGE:
+            try:
+                with open("../images/industry/category_"+categories[idx]["id"]+".png", 'rb') as f:
+                    img = base64.b64encode(f.read()).decode()
+                sc["image"] = "data:image/jpg;base64,"+img
+            except:
+                sc["image"] = ""
+        else:
+            sc["image"] = ""
         res.append(sc)
     return json.dumps(res)
 
@@ -333,8 +344,8 @@ def returnmaptrix():
         impt = 0.
         expt = 0.
         for cat in category:
-            impt += timp[ci][cat]
-            expt += texp[ci][cat]
+            impt += timp[ci][cat]["v"]
+            expt += texp[ci][cat]["v"]
         cres["imptotal"] = impt
         cres["exptotal"] = expt
         cres["explist"] = []
@@ -343,7 +354,7 @@ def returnmaptrix():
             ctd["countryName"] = countries[cj]["country_name_abbreviation"]
             ctv = 0.
             for cat in category:
-                ctv += mexp[ci][cj][cat]
+                ctv += mexp[ci][cj][cat]["v"]
             ctd["expvalue"] = ctv
             cres["explist"].append(ctd)
         res.append(cres)
@@ -448,6 +459,8 @@ def returnforcegraph():
             "value": float(c[3])
         })
 
+
+
     db_close(conn)
 
     return json.dumps({
@@ -499,7 +512,7 @@ def returndonutchart():
             "country": countries[c1]["country_name_abbreviation"],
             "type_id": categories[int(cat)]["id"],
             "type_name": categories[int(cat)]["text"].split(" - ")[-1],
-            "value": texp[c1][cat]
+            "value": texp[c1][cat]["v"]
         })
     # c2
     for cat in category:
@@ -507,7 +520,7 @@ def returndonutchart():
             "country": countries[c2]["country_name_abbreviation"],
             "type_id": categories[int(cat)]["id"],
             "type_name": categories[int(cat)]["text"].split(" - ")[-1],
-            "value": texp[c2][cat]
+            "value": texp[c2][cat]["v"]
         })
 
     db_close(conn)
@@ -599,23 +612,28 @@ def returntimeline():
         res[cid] = []
         reslen[cid] = 0
 
-    for i, yy in enumerate(range(int(yy1), int(yy2)+1)):
-        year = str(yy)
-        catstr = "".join(("(" + str(category)[1:-1] + ")").split("'"))
-        subquery = ' (select t,i,j,sum("sum(v)") as v,sum("sum(q)") as q from n' + year + ' where k in ' + catstr + ' group by t,i,j) '
-        T1 = " (select t,i,j,v,q from %s where i=%s) " % (subquery, c1)
-        T2 = " (select t,i,j,v,q from %s where i=%s) " % (subquery, c2)
-        exe = "select T1.t as t,T1.j as j,(T1.v-T2.v)/(T1.v+T2.v) as r from %s as T1 inner join %s as T2 on T1.j=T2.j" % (T1, T2)
-        if not QUIET:
-            print("SQL query:", exe)
-        cur.execute(exe)
-        cres = cur.fetchall()
-        for t, j, r in cres:
-            res[j].append(r)
-            reslen[j] += 1
-        for k in res.keys():
-            if len(res[k]) < i+1:
-                res[k].append(0.0)
+    catstr = "".join(("(" + str(category)[1:-1] + ")").split("'"))
+    subquery = ' (select t,i,j,sum("sum(v)") as v,sum("sum(q)") as q from n where k in ' + catstr + ' group by t,i,j) '
+    T1 = " (select t,i,j,v,q from %s where i=%s) " % (subquery, c1)
+    T2 = " (select t,i,j,v,q from %s where i=%s) " % (subquery, c2)
+    exe = "select T1.t as t,T1.j as j,(T1.v-T2.v)/(T1.v+T2.v) as r from %s as T1 inner join %s as T2 on T1.j=T2.j and T1.t=T2.t order by t" % (T1, T2)
+    if not QUIET:
+        print("SQL query:", exe)
+    cur.execute(exe)
+    cres = cur.fetchall()
+
+    cyear = int(yy1)
+    for t, j, r in cres:
+        if int(t) > cyear:
+            cyear = int(t)
+            for k in res.keys():
+                if len(res[k]) < cyear - int(yy1):
+                    res[k].append(0.0)
+        res[j].append(r)
+        reslen[j] += 1
+    for k in res.keys():
+        if len(res[k]) < int(yy2) - int(yy1) + 1:
+            res[k].append(0.0)
 
     for k in reslen.keys():
         if reslen[k] <= (int(yy2)-int(yy1)+1)*DELRATE:
@@ -649,9 +667,13 @@ def returnstackchart():
     categorys = request.args.get("category", None)
     if not categorys:
         categorys = DEFAULT["categorys"]
+    queryvorqs = request.args.get("queryvorq", None)
+    if not queryvorqs:
+        queryvorqs = "v"
 
     # parse query conditions
     category = parse_category(categorys)
+    queryvorq = "v" if queryvorqs != "q" else "q"
 
     # response
     # [
@@ -675,7 +697,7 @@ def returnstackchart():
             alpha2 = countries[ci]["iso_2digit_alpha"]
             expt = 0.
             for cat in category:
-                expt += texp[ci][cat]
+                expt += texp[ci][cat][queryvorq]
             cres[alpha2] = expt
         res["data"].append(cres)
     for ci in s_countries_code:
@@ -840,7 +862,7 @@ def returnradarchart():
             if cr[0] == c:
                 ret.append({
                     "axisname": categories[cat]["text"],
-                    "value": MAX - idx
+                    "value": idx + 1
                 })
 
     db_close(conn)
